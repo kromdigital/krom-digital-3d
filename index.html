@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0a0a0d">
+<title>Krom Digital 3D</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app">
+
+  <!-- Vista del modelo 3D -->
+  <main class="vista">
+    <div class="marco" id="marco">
+      <div id="stage"></div>
+      <button id="fsBtn" class="fs" type="button" aria-label="Pantalla completa" title="Pantalla completa">⛶</button>
+    </div>
+  </main>
+
+  <!-- Panel de controles -->
+  <aside class="panel">
+    <header class="titulo"><span class="logo">KD</span><h1>Krom Digital 3D</h1></header>
+
+    <!-- Grabar: arriba en pantallas grandes, fijo abajo en celular -->
+    <div class="acciones">
+      <div class="fila">
+        <button id="rec" class="btn grande" type="button">Grabar</button>
+        <button id="rst" class="btn sec" type="button">Reiniciar</button>
+        <a id="dl" class="btn dl" style="display:none" download="krom-digital.webm">Descargar</a>
+      </div>
+      <p id="msg" role="status" aria-live="polite"></p>
+    </div>
+
+    <details class="sec" open>
+      <summary>Escena y fondo</summary>
+      <div class="cuerpo">
+        <label class="campo">Escena <select id="sceneSel"></select></label>
+        <label class="campo">Fondo <select id="bgSel"></select></label>
+      </div>
+    </details>
+
+    <details class="sec" open>
+      <summary>Textos y colores</summary>
+      <div class="cuerpo"><div id="fields"></div></div>
+    </details>
+
+    <details class="sec">
+      <summary>Sonido</summary>
+      <div class="cuerpo">
+        <label class="campo">Música
+          <select id="musicSel">
+            <option value="none">Sin música</option>
+            <option value="beat">Beat generado</option>
+            <option value="file">Mi archivo…</option>
+          </select>
+        </label>
+        <input id="fileIn" type="file" accept="audio/*" style="display:none">
+        <label class="check"><input type="checkbox" id="sfxChk" checked> Efectos de sonido</label>
+        <label class="campo">Volumen <input type="range" id="volRng" min="0" max="1" step="0.05" value="0.7"></label>
+        <button id="prevBtn" class="btn sec" type="button">Probar sonido</button>
+      </div>
+    </details>
+
+    <details class="sec">
+      <summary>Gestos</summary>
+      <div class="cuerpo">
+        <label class="campo">Gesto <select id="gestSel"></select></label>
+        <button id="gestBtn" class="btn sec" type="button">Probar gesto</button>
+      </div>
+    </details>
+  </aside>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<!-- Núcleo -->
+<script src="js/config.js"></script>
+<script src="js/fields.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/core/text.js"></script>
+<script src="js/character/logo.js"></script>
+<script src="js/character/character.js"></script>
+<script src="js/props.js"></script>
+<script src="js/gestures.js"></script>
+<script src="js/core/stage.js"></script>
+<!-- Escenas: para agregar una nueva, crea el archivo y añade su <script> aquí -->
+<script src="js/scenes/intro.js"></script>
+<script src="js/scenes/promo.js"></script>
+<script src="js/scenes/tip.js"></script>
+<script src="js/scenes/dispositivos.js"></script>
+<script src="js/scenes/nada.js"></script>
+<script src="js/backgrounds.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

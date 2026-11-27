@@ -1,0 +1,5 @@
+*.webm
+*.mp4
+node_modules/
+.DS_Store
+Thumbs.db
